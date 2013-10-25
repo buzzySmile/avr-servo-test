@@ -1,9 +1,9 @@
-//************************************************
-//					main.c						//
-//************************************************
+#include <avr/wdt.h>
 
-#include "include/ini.h"
+#include "include/_structs.h"
 #include "include/EERTOS.h"
+#include "include/ini.h"
+#include "include/RTOScfg.h"
 
 //==============================================================================
 int main(void)
@@ -20,6 +20,7 @@ inf_send();
 
 	while(1) 		// Главный цикл диспетчера
 	{
+
 		wdt_reset();	// Сброс собачьего таймера
 		TaskManager();	// Вызов диспетчера
 		// у приема байт по UART не меньший приоритет, чем у RTOS 

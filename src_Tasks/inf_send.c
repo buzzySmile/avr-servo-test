@@ -1,7 +1,3 @@
-//************************************************
-//		Задача по миганию светодиода			//
-//		 			Task #1						//
-//************************************************
 #include "../include/EERTOS.h"
 #include "../include/_structs.h"
 #include "../include/servo.h"
@@ -17,11 +13,11 @@ UA_INF Ua_InfBuff = {INF_BYTE_1, INF_BYTE_2,	// Начало
 void inf_send (void)
 {
 	u08 ix;
-	for (ix = 0; ix < MaxServos; ix++)
-	{
+	for (ix = 0; ix < MaxServos; ix++) {
 		Ua_InfBuff.Servo[ix].Servo_Addr = ix;
 		Ua_InfBuff.Servo[ix].Servo_pos = Servo[ix].Position;
 	}
+	Ua_InfBuff.checksum = checksumCalc(&Ua_InfBuff.First, sizeof(UA_INF)-1);
 	ua_send(&Ua_InfBuff.First, sizeof(UA_INF), 50);
 
 	/// Мигаем светодиодом, когда посылаем сообщение

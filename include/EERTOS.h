@@ -60,5 +60,7 @@ void Task_Timeout(void);
 u08 ua_send(u08*, u08, u16);
 u08 ua_cmd(u08 *, u08);
 void inf_send (void);
+u08 checksumCalc(u08 *, u16);
+u08 check_sum(u08 *, u16);
 
 #endif

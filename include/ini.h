@@ -15,7 +15,7 @@
 
 
 //Clock Config
-#define F_CPU 8000000L		// Clock Speed
+//#define F_CPU 8000000L		// Clock Speed
 
 //System Timer Config
 #define Prescaler	  		64
